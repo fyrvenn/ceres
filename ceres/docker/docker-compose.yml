@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    image: 'postgres:alpine'
+    environment:
+      POSTGRES_PASSWORD: db_password
+      POSTGRES_USER: db_user
+      POSTGRES_DB: db_test
+      PGDATA: /data/pgdata
+    #volumes:
+    #  - './dbdata:/data/pgdata'
+    ports:
+      - '5432:5432'
+  app:
+    build: ./app
+
